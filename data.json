@@ -1,0 +1,122 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Бензопилы",
+      "description": "Ручная цепная пила, снабжённая двигателем внутреннего сгорания, как правило, двухтактным"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Мотоблоки",
+      "description": "Универсальное мобильное энергетическое средство на базе одноосного шасси, разновидность малогабаритного трактора"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "Gigant YD-KW05-4516",
+      "description": "Бензопила Gigant  мощный инструмент для бытовых нужд. Мощность двигателя 2,1 л.с. обеспечивает возможность распила мягкой древесины.",
+      "preview": "",
+      "category": 1,
+      "price": 7019,
+      "created_at": null,
+      "updated_at": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "PATRIOT PT 3816 220105510",
+      "description": "Бензопила PATRIOT PT 3816 220105510  мощный инструмент для бытовых нужд. Идеально справится с обрезанием кустов и небольших деревьев.",
+      "preview": "",
+      "category": 1,
+      "price": 8700,
+      "created_at": null,
+      "updated_at": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "ЗУБР МТБ-300",
+      "description": "Бензиновый мотоблок ЗУБР МТБ-300 предназначен для рыхления и культивации почвы на приусадебном участке.",
+      "preview": "",
+      "category": 2,
+      "price": 39260,
+      "created_at": null,
+      "updated_at": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "Gigant 7,8 л.с. GSK-04",
+      "description": "Мотоблок Gigant 7,8 л.с. GSK-04 предназначен для выполнения сельскохозяйственных, снегоуборочных, транспортировочных и других работ.",
+      "preview": "",
+      "category": 2,
+      "price": 48232,
+      "created_at": null,
+      "updated_at": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "Gigant 20\" 3,4 л.с./50 см3 GSAF-08",
+      "description": "Бензопила Gigant 20\" 3,4 л.с./50 см3 GSAF-08 предназначена для пиления древесины, с ее помощью можно заготовить дрова, спилить упавшее дерево, обрезать толстые ветки деревьев. Эта ручная цепная пила с двигателем внутреннего сгорания пригодится для продольного и поперечного распила древесины.",
+      "preview": "",
+      "category": 1,
+      "price": 8446,
+      "created_at": null,
+      "updated_at": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "name": "Oleo-Mac GSH 40 5033-9001E1",
+      "description": "Oleo-Mac GSH 40 – это компактная и легкая бензопила. Однако несмотря на свои скромные размеры она максимально эффективна: это возможно благодаря технологиям, характерным для пил более высокого уровня.",
+      "preview": "",
+      "category": 1,
+      "price": 20180,
+      "created_at": null,
+      "updated_at": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "name": "CHAMPION 241-16",
+      "description": "Бензопила CHAMPION 241-16 незаменима при работах по валке деревьев, раскряжевке, обрезке ветвей и распиливания деревянных заготовок.",
+      "preview": "",
+      "category": 1,
+      "price": 9633,
+      "created_at": null,
+      "updated_at": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "name": "Huter BS-45 70/6/2",
+      "description": "Мощная, легкая и надежная. О чем мы? О бензопиле Huter BS-45. Она весит всего 6,5 кг, а мощности ее двигателя 3,1 л. с. и длины шины 45 см достаточно для мелкого строительства и подрезки веток деревьев на участке.",
+      "preview": "",
+      "category": 1,
+      "price": 8146,
+      "created_at": null,
+      "updated_at": null
+    }
+  }
+]
