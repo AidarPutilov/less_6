@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'catalog',
     # Блог
     'blog',
+    # Авторизация
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +144,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Настройки CriSpy Forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+AUTH_USER_MODEL = 'users.User'
