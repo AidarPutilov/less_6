@@ -13,6 +13,13 @@ class User(AbstractUser):
         null=True,
         help_text="Введите страну",
     )
+    phone = models.CharField(
+        max_length=35,
+        verbose_name='телефон',
+        blank=True,
+        null=True,
+        help_text='Введите номер телефона'
+    )
     avatar = models.ImageField(
         upload_to="users/avatars",
         verbose_name="аватар",
