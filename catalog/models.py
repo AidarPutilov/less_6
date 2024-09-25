@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 
 # Категории продуктов
 class Category(models.Model):
@@ -56,6 +58,14 @@ class Product(models.Model):
     in_stock = models.BooleanField(
         default=True,
         verbose_name="в наличии"
+    )
+    owner = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        verbose_name="Владелец",
+        related_name="products",
+        blank=True,
+        null=True,
     )
 
     def __str__(self):
