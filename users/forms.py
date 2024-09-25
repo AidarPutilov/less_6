@@ -1,7 +1,10 @@
+
 from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 
 from users.models import User
+
+from config.settings import EMAIL_HOST_USER
 
 
 class UserRegisterForm(UserCreationForm):
