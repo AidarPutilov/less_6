@@ -16,6 +16,11 @@
                         class="text-body-secondary fw-light"> руб.</small></h1>
                 <p class="list-unstyled mt-3 mb-4">
                     {{ object.description|truncatechars:100 }}
+                    {% if object.in_stock %}
+                    <p class="text-body-secondary">В наличии</p>
+                    {% else %}
+                    <p class="text-body-secondary">Отсутсвует</a>
+                    {% endif %}
                 </p>
                 <p class="list-unstyled mt-3 mb-4">
                     {% for v in versions.items %}
@@ -37,12 +42,12 @@
                             </li>
                         </ul>
                     </div>
-                    {% if object.in_stock %}
+                    {% comment %} {% if object.in_stock %}
                     <a class="btn btn-secondary" href="{% url 'catalog:toggle_stock' object.pk %}">Наличие</a>
                     {% else %}
                     <a class="btn btn-outline-secondary"
                        href="{% url 'catalog:toggle_stock' object.pk %}">Отсутсвует</a>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
                 </div>
             </div>
         </div>

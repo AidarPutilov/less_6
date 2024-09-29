@@ -4,7 +4,7 @@ from catalog.views import (ProductListView,
                            ProductCreateView,
                            ProductUpdateView,
                            ProductDeleteView,
-                           toggle_stock,
+                        #    toggle_stock,
                            ContactTemplateView)
 from catalog.apps import CatalogConfig
 
@@ -22,7 +22,7 @@ urlpatterns = [
     # Удаление продукта
     path('delete/<int:pk>/', ProductDeleteView.as_view(), name='delete_product'),
     # Реализация наличия продукта
-    path('activity/<int:pk>/', toggle_stock, name='toggle_stock'),
+    # path('activity/<int:pk>/', toggle_stock, name='toggle_stock'),
     # Контакты
     path("contacts/", ContactTemplateView.as_view(template_name="contacts.html"), name='contacts'),
 ]

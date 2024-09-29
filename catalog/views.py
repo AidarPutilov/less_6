@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.forms.models import BaseModelForm
@@ -105,8 +106,10 @@ class ContactTemplateView(TemplateView):
     pass
 
 
-def toggle_stock(request, pk):
-    product_item = get_object_or_404(Product, pk=pk)
-    product_item.in_stock = not product_item.in_stock
-    product_item.save()
-    return redirect(reverse("catalog:home"))
+# @login_required
+# @permission_required('catalog.can_edit_in_stock')
+# def toggle_stock(request, pk):
+#     product_item = get_object_or_404(Product, pk=pk)
+#     product_item.in_stock = not product_item.in_stock
+#     product_item.save()
+#     return redirect(reverse("catalog:home"))
