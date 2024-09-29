@@ -1,3 +1,4 @@
+from dataclasses import field
 from django import forms
 from django.db.models import BooleanField
 
@@ -25,6 +26,12 @@ class ProductForm(forms.ModelForm):
         if cleaned_data.lower() in self.forbidden_words:
             raise forms.ValidationError('Ошибка: в описании имеется запрещённое слово')
         return cleaned_data
+
+
+class ProductModeratorForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('description', 'category', 'in_stock')
 
 
 class VersionForm(forms.ModelForm):

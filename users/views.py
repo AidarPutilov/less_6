@@ -1,9 +1,7 @@
-import random
 import secrets
-import string
 from django.core.mail import send_mail
-from django.db.models import QuerySet
 from django.db.models.base import Model as Model
+from django.http import request
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
@@ -19,13 +17,13 @@ class UserCreateView(CreateView):
     success_url = reverse_lazy("users:login")
 
     def form_valid(self, form):
-        user = form.save()
+        user = form.save(commit=False)
         user.is_active = False
-        token = secrets.token_hex(16)
-        user.token = token
+        user.token = secrets.token_hex(16)
         user.save()
-        host = self.request.get_host()
-        url = f"http://{host}/users/email-confirm/{token}/"
+
+        confirm_url = reverse('users:email-confirm', user.token)
+        url = request.build_absolute_url(confirm_url)
         send_mail(
             subject="Подтверждение почты",
             message=f"Перейди по ссылке для подтверждения почты {url}",
@@ -61,9 +59,7 @@ def password_reset(request):
             return render(request, template_name="users/password_reset.html")
         else:
             user = get_object_or_404(User, email=email)
-            new_password = "".join(
-                random.choices(string.ascii_letters + string.digits, k=8)
-            )  # генерит новый пароль
+            new_password = User.objects.make_random_password()
             user.set_password(new_password)
             user.save()
             send_mail(

@@ -16,6 +16,12 @@
                         class="text-body-secondary fw-light"> руб.</small></h1>
                 <p class="list-unstyled mt-3 mb-4">
                     {{ object.description|truncatechars:100 }}
+                    {% if object.in_stock %}
+                    <p class="text-body-secondary">В наличии</p>
+                    {% else %}
+                    <p class="text-body-secondary">Отсутсвует</a>
+                    {% endif %}
+                    <p class="text-body-secondary">Автор: {{ object.owner }}</a>
                 </p>
                 <p class="list-unstyled mt-3 mb-4">
                     {% for v in versions.items %}
@@ -26,6 +32,7 @@
                 </p>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-primary" href="{% url 'catalog:view_product' object.pk %}">Подробнее</a>
+                    {% if perms.catalog.can_edit_in_stock and perms.catalog.can_edit_description and perms.catalog.can_edit_category or user == object.owner %}
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -37,12 +44,15 @@
                             </li>
                         </ul>
                     </div>
-                    {% if object.in_stock %}
+                    {% else %}
+                    <a class="btn btn-primary" href="{% url 'catalog:update_product' object.pk %}">Удалить</a>
+                    {% endif %}
+                    {% comment %} {% if object.in_stock %}
                     <a class="btn btn-secondary" href="{% url 'catalog:toggle_stock' object.pk %}">Наличие</a>
                     {% else %}
                     <a class="btn btn-outline-secondary"
                        href="{% url 'catalog:toggle_stock' object.pk %}">Отсутсвует</a>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
                 </div>
             </div>
         </div>
