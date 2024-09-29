@@ -75,6 +75,11 @@ class Product(models.Model):
         verbose_name = "продукт"
         verbose_name_plural = "продукты"
         ordering = ("name",)
+        permissions = [
+            ('can_edit_in_stock', 'Can edit in_stock'),
+            ('can_edit_description', 'Can edit description'),
+            ('can_edit_category', 'Can edit category')
+        ]
 
 
 # Версии
