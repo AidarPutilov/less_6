@@ -1,9 +1,7 @@
-import random
 import secrets
-import string
 from django.core.mail import send_mail
-from django.db.models import QuerySet
 from django.db.models.base import Model as Model
+from django.http import request
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
