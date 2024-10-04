@@ -1,5 +1,5 @@
-.pylintrc
-.vscode
+# .pylintrc
+# .vscode
 .idea
 temp.*
 *.ini
