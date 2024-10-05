@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.decorators.cache import cache_page
 from catalog.views import (ProductListView,
                            ProductDetailView,
                            ProductCreateView,
@@ -14,7 +15,7 @@ urlpatterns = [
     # Главная страница
     path('', ProductListView.as_view(), name='home'),
     # Описание продукта
-    path('product/<int:pk>/', ProductDetailView.as_view(), name='view_product'),
+    path('product/<int:pk>/', cache_page(60)(ProductDetailView.as_view()), name='view_product'),
     # Создание продукта
     path('create/', ProductCreateView.as_view(), name='create_product'),
     # Редактирование продукта
