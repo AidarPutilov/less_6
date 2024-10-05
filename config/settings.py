@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': 'les_20_1',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 
@@ -164,3 +164,12 @@ SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 LOGIN_URL = 'users:login'
+
+CACHE_ENABLED = True
+if CACHE_ENABLED:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": "redis://127.0.0.1:6379",
+        }
+    }
