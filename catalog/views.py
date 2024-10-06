@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
+from django.db.models.query import QuerySet
 from django.forms.models import BaseModelForm
 from django.shortcuts import get_object_or_404, redirect
 from django.forms import inlineformset_factory
@@ -16,6 +17,8 @@ from django.views.generic import (
 from catalog.forms import ProductForm, ProductModeratorForm, VersionForm
 from catalog.models import Category, Product, Version
 from django.urls import reverse, reverse_lazy
+
+from catalog.services import get_categories_from_cash
 
 
 class ProductListView(ListView):
@@ -108,6 +111,9 @@ class ContactTemplateView(TemplateView):
 
 class CategoryListView(ListView):
     model = Category
+
+    def get_queryset(self):
+        return get_categories_from_cash()
 
 
 # @login_required
