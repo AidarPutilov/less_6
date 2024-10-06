@@ -1,5 +1,6 @@
 # .pylintrc
 # .vscode
+.env
 .idea
 temp.*
 *.ini
