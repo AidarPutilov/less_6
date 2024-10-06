@@ -14,7 +14,7 @@ from django.views.generic import (
 )
 
 from catalog.forms import ProductForm, ProductModeratorForm, VersionForm
-from catalog.models import Product, Version
+from catalog.models import Category, Product, Version
 from django.urls import reverse, reverse_lazy
 
 
@@ -104,6 +104,10 @@ class ProductDeleteView(DeleteView):
 
 class ContactTemplateView(TemplateView):
     pass
+
+
+class CategoryListView(ListView):
+    model = Category
 
 
 # @login_required

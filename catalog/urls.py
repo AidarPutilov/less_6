@@ -6,7 +6,8 @@ from catalog.views import (ProductListView,
                            ProductUpdateView,
                            ProductDeleteView,
                         #    toggle_stock,
-                           ContactTemplateView)
+                           ContactTemplateView,
+                           CategoryListView)
 from catalog.apps import CatalogConfig
 
 app_name = CatalogConfig.name
@@ -26,4 +27,6 @@ urlpatterns = [
     # path('activity/<int:pk>/', toggle_stock, name='toggle_stock'),
     # Контакты
     path("contacts/", ContactTemplateView.as_view(template_name="contacts.html"), name='contacts'),
+    # Список категорий
+    path("categories/", CategoryListView.as_view(), name='categories'),
 ]
