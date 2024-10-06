@@ -15,6 +15,7 @@ psycopg2-binary = "^2.9.9"
 django-crispy-forms = "^2.3"
 crispy-bootstrap5 = "^2024.2"
 redis = "^5.1.0"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
